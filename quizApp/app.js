@@ -35,3 +35,8 @@ const questions = [{
         correctAnswer: 0, //index of asnwer
     }
 ];
+
+//Send question
+app.get('/question', (req, res) => {
+
+});
