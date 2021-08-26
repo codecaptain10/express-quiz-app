@@ -16,4 +16,9 @@ Simple Quiz Application built with Express.js
 		2.3.3 Create 'routes' order
 
 **3) Front-end in index.html**
+	
+	3.1 Create basic structure for front-end
+	3.2 Create stylesheet file
+	
+**4) Webserver logic**
 
