@@ -51,16 +51,18 @@ function gameRoutes(app) {
         console.log('Answer index: ' + index);
 
         const question = questions[goodAnswers];
-        //console.log(question.correctAnswer === Number(index));
-        if (question.correctAnswer === Number(index)) {
-            res.json({
-                correct: true,
-            })
+
+        //Variable if answer is good or not 
+        const isGoodAnswer = (question.correctAnswer === Number(index));
+        if (isGoodAnswer) {
+
         } else {
-            res.json({
-                correct: false,
-            })
+
         }
+
+        res.json({
+            correct: isGoodAnswer,
+        })
 
     });
 
