@@ -29,6 +29,15 @@ function getNextQuestion() {
 
 getNextQuestion();
 
+//DoOM variable to good answers in span
+const goodAnswersSpan = document.querySelector('#goodAnswers');
+
+//handle answer feedback
+function handleAnswerFeedback(data) {
+    goodAnswersSpan.innerText = data.goodAnswers;
+    getNextQuestion();
+}
+
 //Sending answer from client
 function sendAnswer(answerIndex) {
     fetch(`/answer/${answerIndex}`, {
@@ -37,6 +46,7 @@ function sendAnswer(answerIndex) {
         .then(r => r.json())
         .then(data => {
             console.log(data);
+            handleAnswerFeedback(data);
 
         })
 }
