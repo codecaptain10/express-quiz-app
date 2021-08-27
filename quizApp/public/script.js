@@ -5,8 +5,19 @@ const answer2 = document.querySelector('#answer2');
 const answer3 = document.querySelector('#answer3');
 const answer4 = document.querySelector('#answer4');
 
+//Gameboard
+const gameBoard = document.querySelector('#game-board');
+const h2 = document.querySelector('h2');
+
 //Function to full DOM Elements with data
 function fillQuestionElements(data) {
+
+    if (data.winner === true) {
+        gameBoard.style.display = 'none';
+        h2.innerText = "YEEES! WIN!"
+        return;
+    }
+
     question.textContent = data.question;
     answer1.textContent = data.answers[0];
     answer2.textContent = data.answers[1];
