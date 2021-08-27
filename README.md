@@ -24,3 +24,5 @@ Simple Quiz Application built with Express.js
 
 **5) Fronteind script**
 
+**6) Route to game**
+
