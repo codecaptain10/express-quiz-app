@@ -16,7 +16,6 @@ function fillQuestionElements(data) {
 }
 
 //Function to get next question
-//TEST comment
 function getNextQuestion() {
     fetch('/question', {
             method: 'GET',
