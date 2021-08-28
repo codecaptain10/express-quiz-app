@@ -100,8 +100,6 @@ function callToAFriend() {
         .then(r => r.json())
         .then(data => {
             handleFriendsAnswer(data);
-
-
         });
 }
 
@@ -115,8 +113,23 @@ function handleFriendsAnswer(data) {
 
 }
 
-/*-------------------------------------------- */
+// /*-------------------------------------------- */
 //Half on half
+
+function handleHalfOnHalfAnswer(data) {
+    if (typeof data.text === 'string') {
+        tipDiv.innerText = data.text;
+    } else {
+        for (const button of buttons) {
+            if (data.answersToRemove.indexOf(button.innerText) > -1) {
+                button.innerText = '';
+            }
+        }
+    }
+
+
+}
+
 function halfOnHalf() {
     fetch(`/help/half`, {
             method: 'GET',
@@ -130,10 +143,4 @@ function halfOnHalf() {
 }
 
 //Use callToAFriend function in button
-document.querySelector('#callToAFriend').addEventListener('click', halfOnHalf);
-
-function handleHalfOnHalfAnswer(data) {
-    console.log(data);
-
-
-}
+document.querySelector('#halfOnHalf').addEventListener('click', halfOnHalf);

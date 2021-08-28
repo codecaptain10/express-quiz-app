@@ -108,22 +108,33 @@ function gameRoutes(app) {
     app.get('/help/half', (req, res) => {
         if (halfOnHalfUsed) {
             return res.json({
-                text: 'That was alredy used ... '
+                text: 'That was alredy used ... ',
             });
         }
 
         //When half on half was used
         halfOnHalfUsed = true;
 
-        const questions = questions[goodAnswers];
+        const question = questions[goodAnswers];
 
-        //Filter
-        const asnwersCopy = questions.answers.filter((s, index) => {
-            index !== question.correctAnswer;
-        });
-        asnwersCopy.splice(~~(Math.random() * answersCopy.length), 1);
+        //Array with asnwers
+        const asnwersCopy = question.answers;
+        //Filter 
+        //Remove correct answer from list to remove
+        for (let i = 0; i < asnwersCopy.length; i++) {
+            if (asnwersCopy[i] === asnwersCopy[question.correctAnswer]) {
+                const index = asnwersCopy.indexOf(asnwersCopy[question.correctAnswer])
+                asnwersCopy.splice(index, 1);
 
-        console.log(answersCopy)
+            }
+        }
+
+        asnwersCopy.splice(Math.floor(Math.random() * 3), 1);
+
+
+
+        console.log(asnwersCopy);
+
 
 
         res.json({
