@@ -79,6 +79,30 @@ function gameRoutes(app) {
 
     });
 
+    //Help: call to friend
+    app.get('/help/friend', (req, res) => {
+        if (callToAFriendUsed) {
+            return res.json({
+                text: 'That was alredy used ... '
+            });
+        }
+
+        //When call to friend is used
+        callToAFriendUsed = true;
+
+        const friendKnowAnswer = Math.random() < 0.5;
+
+        //Index of actuall answer
+        const question = questions[goodAnswers];
+
+        res.json({
+            text: friendKnowAnswer ? `I think the correct answer is ${question.answers[question.correctAnswer]}` : 'I do not know dude ...',
+
+        });
+
+
+    });
+
 }
 
 

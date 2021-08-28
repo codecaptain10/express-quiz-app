@@ -69,7 +69,7 @@ function sendAnswer(answerIndex) {
 }
 
 //Buttons
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.answer-btn');
 
 
 
@@ -81,3 +81,20 @@ for (const button of buttons) {
         sendAnswer(answerIndex);
     });
 }
+
+
+//Call to friend
+function callToAFriend() {
+    fetch(`/help/friend`, {
+            method: 'GET',
+        })
+        .then(r => r.json())
+        .then(data => {
+            console.log(data);
+
+
+        });
+}
+
+//Use callToAFriend function in button
+document.querySelector('#callToAFriend').addEventListener('click', callToAFriend);
