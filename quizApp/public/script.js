@@ -14,7 +14,13 @@ function fillQuestionElements(data) {
 
     if (data.winner === true) {
         gameBoard.style.display = 'none';
-        h2.innerText = "YEEES! WIN!"
+        h2.innerText = "YEEES! WIN ;)!"
+        return;
+    }
+
+    if (data.loser === true) {
+        gameBoard.style.display = 'none';
+        h2.innerText = "OH NOO! LOSE :( !"
         return;
     }
 
