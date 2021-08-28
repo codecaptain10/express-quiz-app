@@ -103,6 +103,37 @@ function gameRoutes(app) {
 
     });
 
+
+    //Help: half on half
+    app.get('/help/half', (req, res) => {
+        if (halfOnHalfUsed) {
+            return res.json({
+                text: 'That was alredy used ... '
+            });
+        }
+
+        //When half on half was used
+        halfOnHalfUsed = true;
+
+        const questions = questions[goodAnswers];
+
+        //Filter
+        const asnwersCopy = questions.answers.filter((s, index) => {
+            index !== question.correctAnswer;
+        });
+        asnwersCopy.splice(~~(Math.random() * answersCopy.length), 1);
+
+        console.log(answersCopy)
+
+
+        res.json({
+            answersToRemove: asnwersCopy,
+
+        });
+
+
+    });
+
 }
 
 

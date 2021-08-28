@@ -82,6 +82,15 @@ for (const button of buttons) {
     });
 }
 
+/* ------------------------------------------------*/
+const tipDiv = document.querySelector('#tip');
+
+function handleFriendsAnswer(data) {
+    tipDiv.innerText = data.text;
+
+
+}
+
 
 //Call to friend
 function callToAFriend() {
@@ -90,7 +99,7 @@ function callToAFriend() {
         })
         .then(r => r.json())
         .then(data => {
-            console.log(data);
+            handleFriendsAnswer(data);
 
 
         });
@@ -98,3 +107,33 @@ function callToAFriend() {
 
 //Use callToAFriend function in button
 document.querySelector('#callToAFriend').addEventListener('click', callToAFriend);
+
+
+function handleFriendsAnswer(data) {
+    tipDiv.innerText = data.text;
+
+
+}
+
+/*-------------------------------------------- */
+//Half on half
+function halfOnHalf() {
+    fetch(`/help/half`, {
+            method: 'GET',
+        })
+        .then(r => r.json())
+        .then(data => {
+            handleHalfOnHalfAnswer(data);
+
+
+        });
+}
+
+//Use callToAFriend function in button
+document.querySelector('#callToAFriend').addEventListener('click', halfOnHalf);
+
+function handleHalfOnHalfAnswer(data) {
+    console.log(data);
+
+
+}
