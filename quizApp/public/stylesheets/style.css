@@ -136,3 +136,83 @@ button:hover {
 #answer4:hover {
     background-color: lightsalmon;
 }
+
+#win {
+    display: none;
+    position: absolute;
+    width: 60vw;
+    height: 40vh;
+    top: calc(50% - 20vh);
+    left: calc(50% - 30vw);
+    z-index: 1;
+}
+
+#win span {
+    position: absolute;
+    width: 100vw;
+    top: 20%;
+    left: calc(50% - 50vw);
+    text-align: center;
+    font-size: 100px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    animation: win 2s infinite;
+}
+
+@keyframes win {
+    0% {
+        color: chartreuse;
+        font-size: 100px;
+    }
+    25% {
+        color: limegreen;
+        font-size: 100px;
+    }
+    50% {
+        color: lime;
+        font-size: 110px;
+    }
+    75% {
+        color: limegreen;
+        font-size: 100px;
+    }
+    100% {
+        color: chartreuse;
+        font-size: 100px;
+    }
+}
+
+#lose {
+    display: none;
+    position: absolute;
+    width: 60vw;
+    height: 40vh;
+    top: calc(50% - 20vh);
+    left: calc(50% - 30vw);
+    z-index: 1;
+}
+
+#lose span {
+    position: absolute;
+    width: 100vw;
+    top: 20%;
+    left: calc(50% - 50vw);
+    text-align: center;
+    font-size: 100px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    animation: lose 2s infinite;
+}
+
+@keyframes lose {
+    0% {
+        color: salmon;
+        font-size: 100px;
+    }
+    50% {
+        color: red;
+        font-size: 110px;
+    }
+    100% {
+        color: salmon;
+        font-size: 100px;
+    }
+}

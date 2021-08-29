@@ -9,18 +9,23 @@ const answer4 = document.querySelector('#answer4');
 const gameBoard = document.querySelector('#game-board');
 const h2 = document.querySelector('h2');
 
+//Win and lose status
+const winStatus = document.querySelector('#win');
+const loseStatus = document.querySelector('#lose');
+
+
 //Function to full DOM Elements with data
 function fillQuestionElements(data) {
 
     if (data.winner === true) {
         gameBoard.style.display = 'none';
-        h2.innerText = "YEEES! WIN ;)!"
+        winStatus.style.display = 'block';
         return;
     }
 
     if (data.loser === true) {
         gameBoard.style.display = 'none';
-        h2.innerText = "OH NOO! LOSE :( !"
+        loseStatus.style.display = 'block';
         return;
     }
 
