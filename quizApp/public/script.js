@@ -144,3 +144,35 @@ function halfOnHalf() {
 
 //Use callToAFriend function in button
 document.querySelector('#halfOnHalf').addEventListener('click', halfOnHalf);
+
+
+
+/*-------------------------------------------------- */
+//Question to the crowd
+
+function handlequestionToTheCrowd(data) {
+    if (typeof data.text === 'string') {
+        tipDiv.innerText = data.text;
+    } else {
+        data.chart.forEach((percent, index) => {
+            buttons[index].innerText = `${buttons[index].innerText}: ${percent}%`;
+        });
+    }
+
+
+}
+
+function questionToTheCrowd() {
+    fetch(`/help/crowd`, {
+            method: 'GET',
+        })
+        .then(r => r.json())
+        .then(data => {
+            handlequestionToTheCrowd(data);
+
+
+        });
+}
+
+//Use callToAFriend function in button
+document.querySelector('#questionToTheCrowd').addEventListener('click', questionToTheCrowd);
